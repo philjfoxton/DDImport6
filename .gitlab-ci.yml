@@ -1,0 +1,23 @@
+include:
+  - project: 'dashdevs/pfm/infrastructure/shared-pipelines'
+    ref: master
+    file: '/docker/variables.yml'
+  - project: 'dashdevs/pfm/infrastructure/shared-pipelines'
+    ref: master
+    file: '/docker/pipeline.yml'
+
+stages:
+  - test_image
+  - push_image
+
+
+push:
+  stage: push_image
+  script:
+    - echo "$SSH_PRIVATE_KEY" > ssh_key
+    - docker build -t ${CI_REGISTRY_IMAGE} -t ${CI_REGISTRY_IMAGE}:${VERSION} .
+    - docker push ${CI_REGISTRY_IMAGE}
+    - docker push ${CI_REGISTRY_IMAGE}:${VERSION}
+  only:
+    - tags
+
