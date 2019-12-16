@@ -6,9 +6,7 @@ RUN git clone https://github.com/nbering/terraform-provider-ansible.git --branch
     cd /terraform-provider-ansible && \
     GO111MODULE=on GOARCH=amd64 CGO_ENABLED=0 go build -ldflags "-extldflags '-static'"
 COPY ssh_key /tmp/ssh_key
-RUN apk --update add ca-certificates && \
-    cp -R /tmp/certs/* /usr/local/share/ca-certificates/ && \
-    update-ca-certificates
+
 
 FROM runatlantis/atlantis:v0.10.2@sha256:12fd44c060d7f7c5227579bc639dc1be0cc482499b8245519c4bff566a073843
 
