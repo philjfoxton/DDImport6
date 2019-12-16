@@ -4,7 +4,8 @@ include:
     file: '/docker/variables.yml'
   - project: 'dashdevs/pfm/infrastructure/shared-pipelines'
     ref: master
-    file: '/docker/pipeline.yml'
+    file: '/docker/steps.yml'
+
 
 stages:
   - test_image
