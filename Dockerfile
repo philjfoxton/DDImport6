@@ -8,7 +8,7 @@ RUN git clone https://github.com/nbering/terraform-provider-ansible.git --branch
 COPY ssh_key /tmp/ssh_key
 
 
-FROM runatlantis/atlantis:v0.10.2@sha256:12fd44c060d7f7c5227579bc639dc1be0cc482499b8245519c4bff566a073843
+FROM runatlantis/atlantis:v0.10.2
 
 ENV ANSIBLE_VERSION 2.8.3
 ENV AWS_CLI_VERSION 1.16.290
