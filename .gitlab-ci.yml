@@ -21,4 +21,7 @@ push:
     - docker push ${CI_REGISTRY_IMAGE}:${VERSION}
   only:
     - tags
+  tags:
+    - docker_runner
+
 
