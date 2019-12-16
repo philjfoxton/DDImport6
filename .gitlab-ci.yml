@@ -18,7 +18,7 @@ push:
     - echo "$SSH_PRIVATE_KEY" > ssh_key
     - docker build -t ${CI_REGISTRY_IMAGE} -t ${CI_REGISTRY_IMAGE}:${DOCKER_TAG} .
     - docker push ${CI_REGISTRY_IMAGE}
-    - docker push ${CI_REGISTRY_IMAGE}:${VERSION}
+    - docker push ${CI_REGISTRY_IMAGE}:${DOCKER_TAG}
   only:
     - tags
   tags:
